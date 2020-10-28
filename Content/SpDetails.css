@@ -1,0 +1,169 @@
+﻿.statusTable {
+    color: white;
+}
+
+    .statusTable tr td:nth-child(1) {
+        background: orange;
+        padding: 0px 4px 0px 10px;
+    }
+
+    .statusTable tr td:nth-child(2) {
+        background: cornflowerblue;
+        padding: 0px 4px 0px 10px;
+    }
+
+    .statusTable tr td:nth-child(3) {
+        background: green;
+        padding: 0px 4px 0px 10px;
+    }
+
+    .statusTable tr td:nth-child(4) {
+        background: orangered;
+        padding: 0px 4px 0px 10px;
+    }
+
+
+.hideGridColumn {
+    display: none;
+}
+
+
+#pendingRequestGridView:hover {
+    background-color: #FFEB9C;
+    border-top: solid;
+    color: #9C6500;
+}
+
+.textboxHeight {
+    height: 25px;
+    color: black;
+    font-size: 12px;
+}
+
+input[readonly] {
+    background-color: beige;
+}
+
+.modal {
+    overflow-y: scroll;
+}
+
+.modal-open {
+    overflow-y: scroll;
+}
+
+.form-inline .form-control {
+    width: 80%;
+}
+
+.myLabel {
+    text-align: right;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+label {
+    display: block;
+}
+
+.loader {
+    position: relative;
+    text-align: center;
+    margin: 15px auto 35px auto;
+    z-index: 9999;
+    display: block;
+    width: 80px;
+    height: 80px;
+    border: 10px solid rgba(0, 0, 0, .3);
+    border-radius: 50%;
+    border-top-color: #000;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        -webkit-transform: rotate(720deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    to {
+        -webkit-transform: rotate(720deg);
+    }
+}
+
+.bootstrap-tagsinput {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: inline-block;
+    padding: 4px 6px;
+    color: #555;
+    vertical-align: middle;
+    border-radius: 4px;
+    max-width: 100%;
+    line-height: 22px;
+    cursor: text;
+    line-height: 33px;
+    width: 80%;
+}
+
+    .bootstrap-tagsinput input {
+        border: none;
+        box-shadow: none;
+        outline: none;
+        background-color: transparent;
+        padding: 0 6px;
+        margin: 0;
+        width: auto;
+        max-width: inherit;
+    }
+
+    .bootstrap-tagsinput.form-control input::-moz-placeholder {
+        color: #777;
+        opacity: 1;
+    }
+
+    .bootstrap-tagsinput.form-control input:-ms-input-placeholder {
+        color: #777;
+    }
+
+    .bootstrap-tagsinput.form-control input::-webkit-input-placeholder {
+        color: #777;
+    }
+
+    .bootstrap-tagsinput input:focus {
+        border: none;
+        box-shadow: none;
+    }
+
+    .bootstrap-tagsinput .tag {
+        color: white;
+        padding: 3px;
+        background-color: darkblue;
+        border-radius: 7px;
+        font-weight: 500;
+        font-size: 11px;
+        margin: 2px;
+    }
+
+        .bootstrap-tagsinput .tag [data-role="remove"] {
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+            .bootstrap-tagsinput .tag [data-role="remove"]:after {
+                content: "";
+                padding: 0px 0px;
+            }
+
+            .bootstrap-tagsinput .tag [data-role="remove"]:hover {
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            }
+
+                .bootstrap-tagsinput .tag [data-role="remove"]:hover:active {
+                    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+                }
+
+

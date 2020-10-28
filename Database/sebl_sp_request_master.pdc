@@ -1,0 +1,56 @@
+-- Create table
+create table SEBL_SP_REQUEST_MASTER
+(
+  request_id         NVARCHAR2(12) not null,
+  branch_id          NVARCHAR2(4) not null,
+  registration_no    NVARCHAR2(20) not null,
+  sanchay_patra_no   NVARCHAR2(20) not null,
+  walk_in_customer   NUMBER(1) default 0 not null,
+  customer_acc_no    NVARCHAR2(11),
+  customer_name      NVARCHAR2(50) not null,
+  customer_mobile_no NVARCHAR2(11) not null,
+  investment_date    DATE not null,
+  total_investment   NUMBER(18,2) not null,
+  face_value         NUMBER(18,2) not null,
+  start_coupon_no    NUMBER not null,
+  end_coupon_no      NUMBER not null,
+  no_of_coupon       NUMBER,
+  paid_amount        NUMBER(18,2),
+  request_status_id  NUMBER,
+  authorize_status   CHAR(1),
+  make_by            NVARCHAR2(20) not null,
+  make_date          DATE not null,
+  authorize_by       NVARCHAR2(20),
+  authorize_date     DATE,
+  approved_by        NVARCHAR2(20),
+  approved_dt        DATE
+)
+tablespace BU_SYSTEM_TBS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column SEBL_SP_REQUEST_MASTER.walk_in_customer
+  is '0: Own Customer 1: Walk In Customer';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table SEBL_SP_REQUEST_MASTER
+  add constraint PK_SEBL_SP_REQUEST_MASTER primary key (REGISTRATION_NO)
+  using index 
+  tablespace BU_SYSTEM_TBS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );

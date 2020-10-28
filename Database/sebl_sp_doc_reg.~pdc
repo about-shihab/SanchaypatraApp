@@ -1,0 +1,35 @@
+-- Create table
+create table SEBL_SP_DOC_REG
+(
+  registration_no   NVARCHAR2(20) not null,
+  request_id        NVARCHAR2(20) not null,
+  sl_no             NUMBER,
+  status_id         NUMBER,
+  file_nm           VARCHAR2(500) not null,
+  file_navigate_url VARCHAR2(500) not null,
+  folder_location   VARCHAR2(500) not null,
+  ho_upload_flag    NUMBER(1) default 0,
+  br_upload_flag    NUMBER(1) default 1,
+  remarks           VARCHAR2(500),
+  auth_status_id    VARCHAR2(1) default 'U' not null,
+  make_by           VARCHAR2(15) not null,
+  make_dt           DATE not null,
+  auth_by           VARCHAR2(15),
+  auth_dt           DATE,
+  sys_gen_flag      CHAR(1)
+)
+tablespace BU_SYSTEM_TBS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table SEBL_SP_DOC_REG
+  add constraint FK_SEBL_SP_DOC_REG foreign key (REGISTRATION_NO)
+  references SEBL_SP_REQUEST_MASTER (REGISTRATION_NO);

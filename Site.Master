@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SanchaypatraApp.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Sanchaypatra Service
+    </title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/fontawesome-all.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-3.0.0.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Scripts/sweetalert2@10.js"></script>
+    <script src="../Scripts/fontawesome/fontawesome.js"></script>
+    <%--<script src="../Scripts/popper.min.js"></script>--%>
+    <!--[if lt IE 9]> <script src="js/ie/html5shiv.js"></script> <script src="js/ie/respond.min.js"></script> <script src="js/ie/excanvas.js"></script> <![endif]-->
+</head>
+<body style="height:100%;">
+    <style type="text/css">
+        .swal2-wide {
+            width: 150px !important;
+        }
+
+        .swal2-height {
+            height: 80vh;
+        }
+
+        .swal2-popup swal2-modal swal2-icon-warning swal2-show {
+            width: 30vw !important;
+            font-size: 10px !important;
+        }
+
+        .swal2-popup {
+            font-size: .6rem !important;
+        }
+
+        .active {
+            background-color: white;
+            border-radius: 30px;
+            font-weight: 600;
+
+        }
+
+        .active .nav-link{
+            color: black !important;
+        }
+        .nav-link{
+            color:white !important;
+        }
+    </style>
+    <script type="text/javascript">
+        var seessionBranchId = '' +<%="1" + Session["BranchId"].ToString() %>;
+        seessionBranchId = seessionBranchId.substring(1);
+
+        $(document).ready(function () {
+            var menu = '';
+            if (seessionBranchId === '0001') {
+                menu += '<li class="nav-item" id="SpRequestDetails">' +
+                    '<a class="nav-link" href="<%= Page.ResolveUrl("~/UI/SpRequestDetails.aspx") %>">Pending Requests</a></li>';
+            } else {
+                menu += '<li class="nav-item" id="BranchEntry" >' +
+                    '<a class="nav-link" href="<%= Page.ResolveUrl("~/UI/BranchEntry.aspx") %>">Branch Entry</a></li>';
+            }
+            menu += '<li class="nav-item" id="RequestMonitor">' +
+                '<a class="nav-link"  href="<%= Page.ResolveUrl("~/UI/RequestMonitor.aspx") %>">Request Monitor</a></li>';
+
+            $("#menuItem").empty();
+            $("#menuItem").append(menu);
+        });
+        
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:cornflowerblue;padding:2px;" id="nav">
+        <a class="navbar-brand" href="#">Southeast Bank Limited</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarColor01">
+
+            <ul class="navbar-nav mr-auto"  style="background-color:black;font-size:12px;border-radius:30px" id="menuItem">
+                <%--<li class="nav-item active">
+                    <a class="nav-link" href="<%= Page.ResolveUrl("~/UI/Login.aspx") %>">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<%= Page.ResolveUrl("~/UI/RequestMonitor.aspx") %>">RequestMonitor</a>
+                </li>--%>
+            </ul>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-tie"></i>
+                    <%= Session["UserName"].ToString() %>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">
+                        <i class="far fa-building"></i> <%= Session["BranchName"].ToString() %>
+
+                    </a>
+                    <a class="dropdown-item" href="../UI/LogOut.aspx"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <%--<form id="form1" runat="server">--%>
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        <%--</form>--%>
+    </div>
+</body>
+</html>
