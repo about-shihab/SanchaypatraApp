@@ -23,8 +23,8 @@ namespace SanchaypatraApp.UI
             if (randomKey != null && randomKey != "")
             {
 
-                //String strURl = LoginLink.validationLink + randomKey + "&flag=1";
-                String strURl = LoginLink.validationLink + randomKey;
+                String strURl = LoginLink.validationLink + randomKey + "&flag=1";
+                //String strURl = LoginLink.validationLink + randomKey;
                 WebResponse objResponse;
                 WebRequest objRequest = HttpWebRequest.Create(strURl);
                 objResponse = objRequest.GetResponse();
